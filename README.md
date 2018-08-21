@@ -1,10 +1,10 @@
 # Background
-Working docker registry and studying block chain technology bring me the idea.
+Working with docker registry and studying about block chain technology flush me the idea.
 
-# What's ddr
+# What's DDR
 DDR is a Decentralized Docker Registry based on P2P technology to supply high concurrency, fast transfer, low cost for docker images distribution and storage.It does not requires any centralized service but docker users can push and pull the docker images from the system as usual.As pure P2P network structure model, each node is producer and consumer.
 
-# What's ddrd
+# What's DDRD
 Decentralized Docker Registry Daemon(ddrd) is one component of Decentralized Docker Registry system. a daemon running on each P2P node to supply node location, key location, value storage, etc. It uses standard HTTP interface to communicate with other server nodes and client nodes.
 
 More technical detail see my  [blog](http://yangjunsss.github.io/2018-07-05/DDR-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-Decentralized-Docker-Registry-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E8%AE%BE%E8%AE%A1/).
@@ -30,16 +30,13 @@ More technical detail see my  [blog](http://yangjunsss.github.io/2018-07-05/DDR-
 
   Make torrent for the whole image,not for layer.
 
-
-
-# Design Goal
+# Design Requirements
 1. Zero invading
-2. High configurable
-3. Decoupled with Registry, be independent
-4. Full supported API
+2. Standard HTTP APIs
+3. Registry-agnostic
 
 # Network
-The network uses Kademlia/SKademlia protocol to communicate. The main idea of Kademlia/SKademlia is every node organized by fixed bit ID and the distance of node is defined by XOR operation.The distance metric can guide you get close to the destination by ask repeatedly.
+The network uses Kademlia/SKademlia protocol to communicate. The main idea of Kademlia/SKademlia is every node organized by fixed bit ID and the distance between nodes is defined by ID XOR operation.The distance metric can guide you get close to the destination by ask incessantly.
 
 ![img](http://yangjunsss.github.io/images/kademlia.png)
 
@@ -49,7 +46,7 @@ Each node is local registry service server and registry client to push and pull 
 ![ddr](http://yangjunsss.github.io/images/ddr_arch.png)
 
 # Plan
-1. August, September, core technical problems finish
+1. September, core technical problems finish
 2. October, ddrd alpha release
 3. November, ddr driver alpha release
 4. December, bug fix and beta release
